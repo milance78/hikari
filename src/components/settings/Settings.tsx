@@ -64,9 +64,10 @@ const Settings: React.FC<IProps> = ({ parameters, setParameters, score }) => {
             }}
             color='secondary'>
             <MenuItem value={1000}>1 sec</MenuItem>
+            <MenuItem value={900}>0.9 sec</MenuItem>
             <MenuItem value={800}>0.8 sec</MenuItem>
-            <MenuItem value={600}>0.6 sec</MenuItem>
-            <MenuItem value={400}>0.4 sec</MenuItem>
+            <MenuItem value={600}>0.7 sec</MenuItem>
+            <MenuItem value={400}>0.6 sec</MenuItem>
           </Select>
         </FormControl>
         <FormControl>
@@ -88,7 +89,9 @@ const Settings: React.FC<IProps> = ({ parameters, setParameters, score }) => {
             }}
             color='secondary'>
             <MenuItem value={20}>20</MenuItem>
+            <MenuItem value={18}>18</MenuItem>
             <MenuItem value={16}>16</MenuItem>
+            <MenuItem value={14}>14</MenuItem>
             <MenuItem value={12}>12</MenuItem>
             <MenuItem value={8}>8</MenuItem>
             <MenuItem value={4}>4</MenuItem>

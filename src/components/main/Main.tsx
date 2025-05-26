@@ -12,32 +12,46 @@ import { Score } from '../../App'
 
 interface IProps {
   parameters: Parameters
-  setScore : React.Dispatch<React.SetStateAction<Score>>
+  setScore: React.Dispatch<React.SetStateAction<Score>>
 }
 
-const Main: React.FC<IProps> = ({parameters, setScore}) => {
+const Main: React.FC<IProps> = ({ parameters, setScore }) => {
 
   const [resultImage, setResultImage] = useState('');
   const [num, setNum] = useState<null | number>(null);
-  const [startDisabled, setStartDisabled] = useState(false);
   const [inputValue, setInputvalue] = useState('');
   const applauseSound = new Audio('./sounds/applauseSound.wav');
   const sadTromboneSound = new Audio('./sounds/sadTromboneSound.mp3');
   const smoothBeepSound = new Audio('./sounds/smoothBeepSound.mp3');
 
-  
+
   const [currentArray, setCurrentArray] = useState<number[]>([0]);
-  const[started, setStarted] = useState(false)
+  const [started, setStarted] = useState(false)
   const resultElement = useRef<HTMLInputElement>(null);
+  const startElement = useRef<HTMLButtonElement>(null)
 
   const submitHandler = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    evaluateResult(Number(inputValue));
-    setInputvalue('');
-    setStarted(false);
+    if (inputValue !== "" && inputValue !== "e") {
+      evaluateResult(Number(inputValue))
+      setInputvalue('');
+      setStarted(false);
+      startElement.current && startElement.current.focus();
+    }
   }
 
-  useEffect(()=> {
+  useEffect(() => {
+    startElement.current && startElement.current.focus();
+  }, [])
+
+  useEffect(() => {
+    started && currentArray.forEach((el, i) => {
+      setTimeout(() => {
+        setNum(null)
+        // if (el !== 0){ parameters.soundOn && smoothBeepSound.play();}  
+      }
+        , i * parameters.interval - 100);
+    });
     started && currentArray.forEach((el, i) => {
       setTimeout(() => {
         if (el !== 0) {
@@ -49,35 +63,36 @@ const Main: React.FC<IProps> = ({parameters, setScore}) => {
       }
         , i * parameters.interval);
     });
-    started && console.log({currentArray});
-    started && console.log({result: countResult(currentArray)});
-  
+
+    started && console.log({ currentArray });
+    started && console.log({ result: countResult(currentArray) });
+
   }, [started, parameters.range])
 
   const start = () => {
     setStarted(true);
     setResultImage('');
     setCurrentArray(getHikariArray(parameters.range));
-    
+
     resultElement.current && resultElement.current.focus();
   }
 
   const evaluateResult = (currentResult: number) => {
     if (currentResult === countResult(currentArray)) {
       timedResultImage(applause, setResultImage);
-      setScore( prev => 
-        ({
-          ...prev, 
-          trueAnswers: prev.trueAnswers + 1
-        }));
+      setScore(prev =>
+      ({
+        ...prev,
+        trueAnswers: prev.trueAnswers + 1
+      }));
       parameters.soundOn && applauseSound.play();
     } else {
       timedResultImage(wrongAnswer, setResultImage);
-      setScore( prev => 
-        ({
-          ...prev, 
-          falseAnswers: prev.falseAnswers + 1
-        }));
+      setScore(prev =>
+      ({
+        ...prev,
+        falseAnswers: prev.falseAnswers + 1
+      }));
       parameters.soundOn && sadTromboneSound.play();
     }
   }
@@ -91,13 +106,10 @@ const Main: React.FC<IProps> = ({parameters, setScore}) => {
             ? <img src={resultImage} alt='result' />
             : null}
       </div>
-      <Button
+      <button
+        ref={startElement}
         className='start-button'
-        onClick={start}
-        disabled={started === true}
-        sx={{
-          background: "#ba68c8",
-        }}>Start</Button>
+        onClick={start}>START</button>
       <form
         className='form'
         onSubmit={submitHandler}>
