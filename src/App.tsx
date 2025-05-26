@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './App.scss'
+import Main from './components/main/Main'
+import Settings from './components/settings/Settings'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export interface Parameters {
+  interval: number;
+  range: number;
+  soundOn: boolean;
 }
 
-export default App;
+export interface Score {
+  trueAnswers: number;
+  falseAnswers: number;
+}
+
+const App = () => {
+  const [parameters, setParameters] = useState(
+    {
+      interval: 800,
+      range: 12,
+      soundOn: true,
+    }
+  );
+
+  const [score, setScore] = useState({
+    trueAnswers: 0,
+    falseAnswers: 0
+  }) 
+
+  return (
+    <div className='app'>
+      <Main parameters={parameters} 
+      setScore={setScore}/>
+      <Settings parameters={parameters}
+      setParameters={setParameters} 
+      score={score}/>
+    </div>
+  )
+}
+
+export default App
