@@ -1,49 +1,27 @@
 .settings {
-    .sound-and-score {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 50px;
-        .sound {
-            cursor: pointer;
-            color: #ba68c8;
-            margin-right: 30px;
-            .sound-icon {
-                font-size: 30px;
-            }
-        }
-        .score {
-            display: flex;
-            gap: 40px;
-            border: solid 1px #ba68c8;
-            border-radius: 5px;
-            padding: 8px 15px;
-           .score-display {
-            font-size: 17px;   
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-           }
-           .true-icon {
-            color: green;
-            font-size: 25px;
-           }
-           .false-icon {
-            color: red;
-            font-size: 25px;
-           }
+    position: absolute;
+    top: 200px;
+    right: -140px;
+    border: solid 1px var(--main);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 40px;
+    .sound {
+        cursor: pointer;
+        color: var(--main);
+        margin-right: 30px;
+
+        .sound-icon {
+            font-size: 30px;
         }
     }
-    
-    .select-inputs{
-        display: flex;
-        gap: 20px;
-        margin-bottom: 150px;
-        .select {
-            width: 120px;      
-        }
+
+    .select {
+        width: 120px;
+        // display: block;
     }
-   
+
+
 }

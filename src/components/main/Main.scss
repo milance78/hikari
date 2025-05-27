@@ -1,14 +1,15 @@
 .main {
-    margin-left: 50%;
-    transform: translate(-50%);
+    // margin-left: 50%;
+    // transform: translate(-50%);
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1;
 
     .display {
         width: 300px;
         height: 200px;
-        border: 4px #ba68c8 solid;
+        border: 4px var(--main) solid;
         border-radius: 8px;
         background: white;
         font-size: 60px;
@@ -25,7 +26,7 @@
     .start-button {
         border: none;
         outline: none;
-        background: #ba68c8;
+        background: var(--main);
         border-radius: 5px;
         color: white;
         font-size: 16px;
@@ -51,7 +52,7 @@
             width: 120px;
         }
         .submit-button {
-            color: #ba68c8;
+            color: var(--main);
         }
 
         input[type=number]::-webkit-inner-spin-button,
@@ -68,6 +69,8 @@
         display: flex;
         justify-content: space-between;
     }
+
+    
 
 
 }

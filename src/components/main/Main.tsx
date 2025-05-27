@@ -8,11 +8,11 @@ import { getHikariArray, timedResultImage } from '../../functions'
 import { changeHandler } from '../../functions'
 import { countResult } from '../../functions'
 import { Parameters } from '../../App'
-import { Score } from '../../App'
+import { IScore } from '../../App'
 
 interface IProps {
   parameters: Parameters
-  setScore: React.Dispatch<React.SetStateAction<Score>>
+  setScore: React.Dispatch<React.SetStateAction<IScore>>
 }
 
 const Main: React.FC<IProps> = ({ parameters, setScore }) => {
@@ -45,13 +45,14 @@ const Main: React.FC<IProps> = ({ parameters, setScore }) => {
   }, [])
 
   useEffect(() => {
+    // blinking - not sure how I made it
     started && currentArray.forEach((el, i) => {
       setTimeout(() => {
-        setNum(null)
-        // if (el !== 0){ parameters.soundOn && smoothBeepSound.play();}  
+        setNum(null) 
       }
         , i * parameters.interval - 100);
     });
+    // numbers display
     started && currentArray.forEach((el, i) => {
       setTimeout(() => {
         if (el !== 0) {
@@ -67,7 +68,7 @@ const Main: React.FC<IProps> = ({ parameters, setScore }) => {
     started && console.log({ currentArray });
     started && console.log({ result: countResult(currentArray) });
 
-  }, [started, parameters.range])
+  }, [started])
 
   const start = () => {
     setStarted(true);
