@@ -1,23 +1,21 @@
-import React from 'react'
 import './Score.scss'
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
-import { IScore } from '../../App';
+import { RootState, useAppSelector } from '../../redux/store';
 
-interface IProps {
-  score: IScore;
-}
+const Score = () => {
 
-const Score: React.FC<IProps> = ({score}) => {
+  const { trueAnswers, falseAnswers } = useAppSelector((state: RootState) => state.score)
+
   return (
     <div className="score">
-        <div className="true-answers score-display">
-          <DoneIcon className='true-icon' /> {score.trueAnswers}
-        </div>
-        <div className="false-answers score-display">
-          <CloseIcon className='false-icon' /> {score.falseAnswers}
-        </div>
+      <div className="true-answers score-display">
+        <DoneIcon className='true-icon' /> {trueAnswers}
       </div>
+      <div className="false-answers score-display">
+        <CloseIcon className='false-icon' /> {falseAnswers}
+      </div>
+    </div>
   )
 }
 

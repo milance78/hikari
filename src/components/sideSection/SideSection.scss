@@ -1,0 +1,14 @@
+.side-section {
+    position: absolute;
+    right: 27%;
+
+    .settings-container {
+      width: fit-content;
+        margin-top: 20px;
+      .cog-icon {             
+        color: var(--main);
+        font-size: 35px;
+        cursor: pointer;
+      }
+    }
+  }

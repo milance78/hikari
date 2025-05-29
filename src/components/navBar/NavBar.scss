@@ -1,0 +1,21 @@
+nav {
+    background: var(--main);
+    color: rgb(255, 232, 222);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    h1 {
+        font-size: 30px;
+    }
+    .global-settings {
+        
+        display: flex;
+        gap: 50px;
+        .icon {
+            font-size: 25px;
+            cursor: pointer;
+        }
+    }
+}

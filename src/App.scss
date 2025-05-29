@@ -1,19 +1,13 @@
-.app { 
+.app {
   height: 100vh;
   background-color: rgb(254, 201, 250);
 
   .container {
     display: flex;
-    margin: 0 25%;
-    padding: 200px 0;
+    padding: 180px 0;
     position: relative;
-    justify-content: space-between;
-    .cog-icon {
-      flex: 1;
-      color: var(--main);
-      font-size: 35px;
-      cursor: pointer;
-    }
   }
+
+  
   
 }

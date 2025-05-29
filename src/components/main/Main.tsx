@@ -1,32 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Main.scss'
 import { Button, TextField } from '@mui/material'
-import { arrays12 } from '../../data'
 import wrongAnswer from '../../img/wrongAnswer.png'
 import applause from '../../img/applause.png'
 import { getHikariArray, timedResultImage } from '../../functions'
 import { changeHandler } from '../../functions'
 import { countResult } from '../../functions'
-import { Parameters } from '../../App'
-import { IScore } from '../../App'
+import { useAppSelector } from '../../redux/store'
+import { RootState, useAppDispatch } from '../../redux/store'
+import { incrementFalseScore, incrementTrueScore } from '../../redux/features/scoreSlice'
 
-interface IProps {
-  parameters: Parameters
-  setScore: React.Dispatch<React.SetStateAction<IScore>>
-}
-
-const Main: React.FC<IProps> = ({ parameters, setScore }) => {
+const Main = () => {
 
   const [resultImage, setResultImage] = useState('');
   const [num, setNum] = useState<null | number>(null);
   const [inputValue, setInputvalue] = useState('');
+  const [currentArray, setCurrentArray] = useState<number[]>([0]);
+  const [started, setStarted] = useState(false);
+
+  const dispatch = useAppDispatch();
+
+  const { interval, range, soundOn } = useAppSelector((state: RootState) => state.parameters);
+  
   const applauseSound = new Audio('./sounds/applauseSound.wav');
   const sadTromboneSound = new Audio('./sounds/sadTromboneSound.mp3');
   const smoothBeepSound = new Audio('./sounds/smoothBeepSound.mp3');
-
-
-  const [currentArray, setCurrentArray] = useState<number[]>([0]);
-  const [started, setStarted] = useState(false)
+  
   const resultElement = useRef<HTMLInputElement>(null);
   const startElement = useRef<HTMLButtonElement>(null)
 
@@ -48,32 +47,31 @@ const Main: React.FC<IProps> = ({ parameters, setScore }) => {
     // blinking - not sure how I made it
     started && currentArray.forEach((el, i) => {
       setTimeout(() => {
-        setNum(null) 
+        setNum(null)
       }
-        , i * parameters.interval - 100);
+        , i * interval - 100);
     });
     // numbers display
     started && currentArray.forEach((el, i) => {
       setTimeout(() => {
         if (el !== 0) {
           setNum(el)
-          parameters.soundOn && smoothBeepSound.play();
+          soundOn && smoothBeepSound.play();
         } else {
           setNum(null)
         };
       }
-        , i * parameters.interval);
+        , i * interval);
     });
 
     started && console.log({ currentArray });
     started && console.log({ result: countResult(currentArray) });
-
   }, [started])
 
   const start = () => {
     setStarted(true);
     setResultImage('');
-    setCurrentArray(getHikariArray(parameters.range));
+    setCurrentArray(getHikariArray(range));
 
     resultElement.current && resultElement.current.focus();
   }
@@ -81,25 +79,17 @@ const Main: React.FC<IProps> = ({ parameters, setScore }) => {
   const evaluateResult = (currentResult: number) => {
     if (currentResult === countResult(currentArray)) {
       timedResultImage(applause, setResultImage);
-      setScore(prev =>
-      ({
-        ...prev,
-        trueAnswers: prev.trueAnswers + 1
-      }));
-      parameters.soundOn && applauseSound.play();
+      dispatch(incrementTrueScore());
+      soundOn && applauseSound.play();
     } else {
       timedResultImage(wrongAnswer, setResultImage);
-      setScore(prev =>
-      ({
-        ...prev,
-        falseAnswers: prev.falseAnswers + 1
-      }));
-      parameters.soundOn && sadTromboneSound.play();
+      dispatch(incrementFalseScore());
+      soundOn && sadTromboneSound.play();
     }
   }
 
   return (
-    <div className='main'>
+    <section className='main'>
       <div className="display">
         {started
           ? <div className='num'>{num}</div>
@@ -107,10 +97,11 @@ const Main: React.FC<IProps> = ({ parameters, setScore }) => {
             ? <img src={resultImage} alt='result' />
             : null}
       </div>
+      {/* needed to use simple button because focus method is not good looking with MUI button */}
       <button
         ref={startElement}
         className='start-button'
-        onClick={start}>START</button>
+        onClick={start}>START</button> 
       <form
         className='form'
         onSubmit={submitHandler}>
@@ -127,7 +118,14 @@ const Main: React.FC<IProps> = ({ parameters, setScore }) => {
           Submit
         </Button>
       </form>
-    </div>
+      {/* <div className="current-array">
+      {
+      currentArray.filter(el => el !== 0).map(el => 
+        <span style={{fontSize: '20px'}}>{` ${el } `} &nbsp;	&nbsp; &nbsp;</span>
+       )
+      }
+      </div> */}
+    </section>
   )
 }
 
