@@ -1,0 +1,45 @@
+.color-select {
+    position: relative;
+
+    ul {
+        position: absolute;
+        right: 30px;
+        border: solid var(--main-violet);
+        padding: 15px 0;
+        border-radius: 5px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+
+        li {
+            z-index: 1;
+            cursor: pointer;
+            padding: 10px 25px;
+            color: var(--main-violet);
+            gap: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+
+            &:hover {
+                background: rgb(253, 246, 246);
+            }
+
+            img {
+                width: 25px;
+            }
+        }
+
+
+    }
+}
+
+// .color-select.blue {
+//     border: solid var(--main-blue);
+//     ul {
+//         color: var(--main-violet);
+//         li {
+//             color: var(--main-violet);
+//         }
+//     }
+// }

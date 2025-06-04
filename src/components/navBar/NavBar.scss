@@ -1,6 +1,5 @@
 nav {
-    background: var(--main);
-    color: rgb(255, 232, 222);
+    background: var(--main-violet);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -18,4 +17,8 @@ nav {
             cursor: pointer;
         }
     }
+}
+
+nav.blue {
+    background: var(--main-blue);
 }

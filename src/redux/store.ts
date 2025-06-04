@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import parametersReducer from './features/parametersSlice'
 import scoreReducer from './features/scoreSlice'
+import runningReducer from './features/runningSlice'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 export const store = configureStore({
   reducer: {
     parameters: parametersReducer,
-    score: scoreReducer
+    score: scoreReducer,
+    running: runningReducer,
   },
 })
 

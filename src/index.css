@@ -6,11 +6,14 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  user-select: none;
 }
 
 :root {
-  --bg: rgb(254, 201, 250);
-  --main: #ba68c8;
+  --bg-violet: rgb(254, 201, 250);
+  --main-violet: #ba68c8;
+  --bg-blue: rgb(192, 228, 236);
+  --main-blue: #06a8cd;
 }
 
 

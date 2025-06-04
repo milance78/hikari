@@ -1,13 +1,14 @@
 .app {
   height: 100vh;
-  background-color: rgb(254, 201, 250);
+  background-color: var(--bg-violet);
 
   .container {
     display: flex;
-    padding: 180px 0;
+    padding: 160px 0;
     position: relative;
-  }
+  }   
+}
 
-  
-  
+.app.blue {
+  background-color: var(--bg-blue);
 }

@@ -1,8 +1,3 @@
-
-
-export const arrays12 = [   
-    [8, -3, -5, 4, -1, -2, 5, 1, 2, -4, 2, -5, 0], 
-    [1, 5, 2, -5, -2, 3, 5, -3, 2, -5, 1, 5, 0],
-    [5, 3, 1, -7, -1, 2, -3, 7, -2, 4, -8, 6]
-   
-]
+export const applauseSound = new Audio('./sounds/applause.wav');
+export const sadTromboneSound = new Audio('./sounds/sadTrombone.mp3');
+export const smoothBeepSound = new Audio('./sounds/smoothBeep.mp3');

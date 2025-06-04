@@ -1,20 +1,21 @@
-import React from 'react'
 import './NavBar.scss'
-import LanguageIcon from '@mui/icons-material/Language';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LanguageSelect from '../languageSelect/LanguageSelect';
+import ColorSelect from '../themeSelect/ThemeSelect';
+import { useAppSelector } from '../../redux/store';
 
 const NavBar = () => {
+
+    const { theme } = useAppSelector(state => state.parameters)
+
     return (
-        <nav>
+        <nav className={theme === 'blue' ? 'blue' : ''}>
             <h1>HIKARI mental arithmetic</h1>
             <div className="global-settings">
-                <LanguageIcon className='icon'/>
-                <ColorLensIcon className='icon'/>
-                <AccountCircleIcon className='icon'/>
+                <LanguageSelect />
+                <ColorSelect />
+                <AccountCircleIcon className='icon' />
             </div>
-
-
         </nav>
     )
 }
