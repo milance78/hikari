@@ -4,7 +4,7 @@ export const smoothBeepSound = new Audio('./sounds/smoothBeep.mp3');
 
 export interface Theme {
     background: string,
-    primary: string
+    primary: string,
 }
 export const blueTheme = {
     background: 'rgb(192, 228, 236)',
@@ -15,4 +15,5 @@ export const violetTheme = {
     background: 'rgb(254, 201, 250)',
     primary: ' #ba68c8'
 }
+
 

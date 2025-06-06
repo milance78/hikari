@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 30px;
     padding: 30px 40px;
+
     .sound {
         cursor: pointer;
         color: var(--primary);
@@ -20,8 +21,21 @@
 
     .select {
         width: 120px;
+
+        .css-1jwvgpz-MuiFormLabel-root-MuiInputLabel-root .Mui-focused {
+            color: var(--primary);
+        }
+
+        .Mui-focused .MuiOutlinedInput-notchedOutline.MuiOutlinedInput-notchedOutline {
+            border-color: var(--primary);
+        }
+
+        .css-g76xc9-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+            color: var(--primary);
+        }
+
     }
 
 
-}
 
+}
