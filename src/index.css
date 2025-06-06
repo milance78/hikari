@@ -10,10 +10,14 @@
 }
 
 :root {
-  --bg-violet: rgb(254, 201, 250);
-  --main-violet: #ba68c8;
-  --bg-blue: rgb(192, 228, 236);
-  --main-blue: #06a8cd;
+  --bg: rgb(192, 228, 236);
+  --primary: #06a8cd;
 }
 
+.css-1jwvgpz-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: var(--primary);
+}
 
+.Mui-focused .MuiOutlinedInput-notchedOutline.MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary);
+}

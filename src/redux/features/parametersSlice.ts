@@ -6,7 +6,6 @@ const initialState = {
     range: 12,
     rounds: 20,
     soundOn: true,
-    theme: 'purple'
 }
 
 export const parametersSlice = createSlice({
@@ -31,14 +30,9 @@ export const parametersSlice = createSlice({
         (state, action : PayloadAction<number>) => ({
                 ...state,
                 rounds: action.payload        
-        }),
-        updateTheme: (state, action : PayloadAction<string>) => ({
-            ...state,
-            theme: action.payload
-        }),
-            
+        }),        
     },
 });
 
-export const { soundOnOff, updateInterval, updateRange, updateTheme, updateRounds } = parametersSlice.actions
+export const { soundOnOff, updateInterval, updateRange, updateRounds } = parametersSlice.actions
 export default parametersSlice.reducer

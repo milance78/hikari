@@ -8,7 +8,7 @@
     .display {
         width: 300px;
         height: 200px;
-        border: 4px var(--main-violet) solid;
+        border: 4px var(--primary) solid;
         border-radius: 8px;
         background: white;
         font-size: 60px;
@@ -26,7 +26,7 @@
         border: none;
         outline: none;
         margin-top: 5px;
-        background: var(--main-violet);
+        background: var(--primary);
         border-radius: 5px;
         color: white;
         font-size: 16px;
@@ -52,7 +52,7 @@
             width: 120px;
         }
         .submit-button {
-            color: var(--main-violet);
+            color: var(--primary);
         }
 
         input[type=number]::-webkit-inner-spin-button,
@@ -63,6 +63,10 @@
         input[type=number] {
             -moz-appearance: textfield;
         }
+        .Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: var(--primary);
+        }
+       
     }
     .display-array {
         width: 300px;
@@ -72,17 +76,3 @@
 
 }
 
-.main.blue {
-    .display {
-        border: 4px var(--main-blue) solid;
-        // color: #8d59fe;
-    }
-    .start-button {
-        background: var(--main-blue);
-    }
-    .form {
-        .submit-button {
-            color: var(--main-blue);
-        }
-    }
-}

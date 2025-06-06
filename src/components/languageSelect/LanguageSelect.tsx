@@ -3,11 +3,9 @@ import './LanguageSelect.scss'
 import LanguageIcon from '@mui/icons-material/Language';
 import englishFlag from '../../img/englishFlag.png'
 import serbianFlag from '../../img/serbianFlag.png'
-import { useAppSelector } from '../../redux/store';
 
 const LanguageSelect = () => {
 
-  const { theme } = useAppSelector(store => store.parameters);
   const [visible, setVisible] = useState(false);
   const languagesElement = useRef<HTMLDivElement | null>(null);
   useEffect(() => {   
@@ -19,7 +17,7 @@ const LanguageSelect = () => {
   }, []);
 
   return (
-    <div className={`language-select ${theme}`}
+    <div className='language-select'
        ref={languagesElement}>
       <LanguageIcon className='icon'
         onClick={() => setVisible(prev => !prev)} />

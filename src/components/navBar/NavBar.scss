@@ -1,5 +1,5 @@
 nav {
-    background: var(--main-violet);
+    background: var(--primary);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -17,8 +17,4 @@ nav {
             cursor: pointer;
         }
     }
-}
-
-nav.blue {
-    background: var(--main-blue);
 }

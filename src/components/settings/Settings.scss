@@ -2,7 +2,7 @@
     position: absolute;
     left: 200px;
     top: 0px;
-    border: solid 1px var(--main-violet);
+    border: solid 1px var(--primary);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
     padding: 30px 40px;
     .sound {
         cursor: pointer;
-        color: var(--main-violet);
+        color: var(--primary);
         margin-right: 30px;
 
         .sound-icon {
@@ -20,16 +20,8 @@
 
     .select {
         width: 120px;
-        // display: block;
     }
 
 
-}
-
-.settings.blue{
-    border: solid 1px var(--main-blue);
-        .sound{
-            color: var(--main-blue);
-        }
 }
 

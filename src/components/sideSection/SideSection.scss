@@ -7,17 +7,10 @@
     margin-top: 20px;
 
     .cog-icon {
-      color: var(--main-violet);
+      color: var(--primary);
       font-size: 35px;
       cursor: pointer;
     }
   }
 }
 
-.side-section.blue {
-  .settings-container {
-    .cog-icon {
-      color: var(--main-blue);
-    }
-  }
-}

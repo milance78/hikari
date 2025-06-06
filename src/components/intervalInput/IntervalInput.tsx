@@ -6,22 +6,20 @@ import { updateInterval } from '../../redux/features/parametersSlice';
 const IntervalInput = () => {
 
     const dispatch = useAppDispatch();
-    const { interval, theme } = useAppSelector(state => state.parameters);
+    const { interval } = useAppSelector(state => state.parameters);
 
     return (
         <FormControl className='select'>
-            <InputLabel
-                sx={{ fontSize: '17px' }}
-                color={theme === 'violet' ? 'secondary' : 'info'}>
+            <InputLabel sx={{ fontSize: '17px' }}>
                 Interval
             </InputLabel>
             <Select
+
                 value={interval}
                 label="Interval"
                 sx={{ fontSize: '17px' }}
                 onChange={(ev: any) =>
-                    dispatch(updateInterval(ev.target.value))}
-                color={theme === 'violet' ? 'secondary' : 'info'}>
+                    dispatch(updateInterval(ev.target.value))}>
                 <MenuItem value={3000}>3 sec</MenuItem>
                 <MenuItem value={2000}>2 sec</MenuItem>
                 <MenuItem value={1500}>1.5 sec</MenuItem>

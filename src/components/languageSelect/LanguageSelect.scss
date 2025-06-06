@@ -4,7 +4,7 @@
     ul {
         position: absolute;
         right: 30px;
-        border: solid var(--main-violet);
+        border: solid var(--primary);
         padding: 15px 0;
         border-radius: 5px;
         background: white;
@@ -15,7 +15,7 @@
             z-index: 1;
             cursor: pointer;
             padding: 10px 25px;
-            color: var(--main-violet);
+            color: var(--primary);
             gap: 15px;
             display: flex;
             align-items: center;
@@ -31,15 +31,5 @@
         }
 
 
-    }
-}
-
-.language-select.blue {   
-    ul {
-        border: solid var(--main-blue);
-        color: var(--main-blue);
-        li {
-            color: var(--main-blue);
-        }
     }
 }
