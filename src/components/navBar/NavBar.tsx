@@ -1,7 +1,7 @@
 import './NavBar.scss'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LanguageSelect from '../languageSelect/LanguageSelect';
-import ColorSelect from '../themeSelect/ThemeSelect';
+import ThemeSelect from '../themeSelect/ThemeSelect';
 import { useAppSelector } from '../../redux/store';
 
 const NavBar = () => {
@@ -13,7 +13,7 @@ const NavBar = () => {
             <h1>HIKARI mental arithmetic</h1>
             <div className="global-settings">
                 <LanguageSelect />
-                <ColorSelect />
+                <ThemeSelect />
                 <AccountCircleIcon className='icon' />
             </div>
         </nav>

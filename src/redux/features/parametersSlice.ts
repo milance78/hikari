@@ -4,6 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 const initialState = {
     interval: 900,
     range: 12,
+    rounds: 20,
     soundOn: true,
     theme: 'purple'
 }
@@ -26,6 +27,11 @@ export const parametersSlice = createSlice({
                 ...state,
                 range: action.payload        
         }),
+        updateRounds: 
+        (state, action : PayloadAction<number>) => ({
+                ...state,
+                rounds: action.payload        
+        }),
         updateTheme: (state, action : PayloadAction<string>) => ({
             ...state,
             theme: action.payload
@@ -34,5 +40,5 @@ export const parametersSlice = createSlice({
     },
 });
 
-export const { soundOnOff, updateInterval, updateRange, updateTheme } = parametersSlice.actions
+export const { soundOnOff, updateInterval, updateRange, updateTheme, updateRounds } = parametersSlice.actions
 export default parametersSlice.reducer

@@ -3,9 +3,11 @@ import './SideSection.scss'
 import Score from '../score/Score';
 import Settings from '../settings/Settings';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { useAppSelector } from '../../redux/store';
 
 const SideSection = () => {
 
+    const { theme } = useAppSelector(store => store.parameters);
     const [visible, setVisible] = useState(false);
       const settingsElement = useRef<HTMLDivElement>(null);
     
@@ -14,7 +16,7 @@ const SideSection = () => {
       }
 
   return (
-    <section className="side-section">
+    <section className={`side-section ${theme}`}>
       <Score />
       <div className="settings-container"
         ref={settingsElement}>

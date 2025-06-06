@@ -6,7 +6,7 @@
     justify-content: center;
     gap: 40px;
     border: solid 1px var(--main-violet);
-    border-radius: 5px;   
+    border-radius: 5px;
 
     .score-display {
         font-size: 17px;
@@ -26,4 +26,8 @@
         color: red;
         font-size: 25px;
     }
+}
+
+.score.blue {
+    border: solid 1px var(--main-blue);
 }

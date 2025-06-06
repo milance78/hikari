@@ -1,19 +1,18 @@
 import './IntervalInput.scss'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { useAppDispatch, useAppSelector } from '../../redux/store';
-import { RootState } from '../../redux/store';
 import { updateInterval } from '../../redux/features/parametersSlice';
 
 const IntervalInput = () => {
 
     const dispatch = useAppDispatch();
-    const { interval } = useAppSelector((state: RootState) => state.parameters);
+    const { interval, theme } = useAppSelector(state => state.parameters);
 
     return (
         <FormControl className='select'>
             <InputLabel
                 sx={{ fontSize: '17px' }}
-                color='secondary'>
+                color={theme === 'violet' ? 'secondary' : 'info'}>
                 Interval
             </InputLabel>
             <Select
@@ -22,7 +21,7 @@ const IntervalInput = () => {
                 sx={{ fontSize: '17px' }}
                 onChange={(ev: any) =>
                     dispatch(updateInterval(ev.target.value))}
-                color='secondary'>
+                color={theme === 'violet' ? 'secondary' : 'info'}>
                 <MenuItem value={3000}>3 sec</MenuItem>
                 <MenuItem value={2000}>2 sec</MenuItem>
                 <MenuItem value={1500}>1.5 sec</MenuItem>

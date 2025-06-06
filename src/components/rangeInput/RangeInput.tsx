@@ -7,12 +7,12 @@ import { RootState } from '../../redux/store';
 const RangeInput = () => {
 
     const dispatch = useAppDispatch();
-    const { range } = useAppSelector((state: RootState) => state.parameters);
+    const { range, theme } = useAppSelector((state: RootState) => state.parameters);
 
     return <FormControl className='select'>
         <InputLabel
             sx={{ fontSize: '17px' }}
-            color='secondary'>
+            color={theme === 'violet' ? 'secondary' : 'info'}>
             Range
         </InputLabel>
         <Select
@@ -22,7 +22,7 @@ const RangeInput = () => {
             sx={{ fontSize: '17px' }}
             onChange={(ev: any) =>
                 dispatch(updateRange(ev.target.value))}
-            color='secondary'>
+            color={theme === 'violet' ? 'secondary' : 'info'}>
             <MenuItem value={20}>20</MenuItem>
             <MenuItem value={18}>18</MenuItem>
             <MenuItem value={16}>16</MenuItem>

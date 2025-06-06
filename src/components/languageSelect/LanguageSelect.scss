@@ -33,3 +33,13 @@
 
     }
 }
+
+.language-select.blue {   
+    ul {
+        border: solid var(--main-blue);
+        color: var(--main-blue);
+        li {
+            color: var(--main-blue);
+        }
+    }
+}

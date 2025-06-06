@@ -15,6 +15,7 @@ const Main = () => {
   const [isRunning, setIsRunning] = useState(false);
 
   const dispatch = useAppDispatch();
+  const { theme } = useAppSelector(store => store.parameters);
   const { resultImage, displayedNumber } = useAppSelector((state: RootState) => state.running);
 
   // initially focusing on start button at onload
@@ -51,7 +52,7 @@ const Main = () => {
         : null
 
   return (
-    <section className='main'>
+    <section className={`main ${theme}`}>
       <div className="display">
         {displayValue()}
       </div>
@@ -69,14 +70,14 @@ const Main = () => {
           className='result'
           onChange={ev => setInputvalue(ev.target.value)}
           inputRef={resultElement}
-          color='secondary' />
+          color={theme === 'violet' ? 'secondary' : 'info'} />
         <Button
           type='submit'
           className='submit-button'>
           Submit
         </Button>
       </form>
-      
+
       {/* <div className
       ="current-array">
       {

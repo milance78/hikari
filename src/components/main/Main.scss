@@ -1,6 +1,4 @@
 .main {
-    // margin: 0 50%;
-    // transform: translate(-50%);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -27,6 +25,7 @@
     .start-button {
         border: none;
         outline: none;
+        margin-top: 5px;
         background: var(--main-violet);
         border-radius: 5px;
         color: white;
@@ -71,7 +70,19 @@
         justify-content: space-between;
     }
 
-    
+}
 
-
+.main.blue {
+    .display {
+        border: 4px var(--main-blue) solid;
+        // color: #8d59fe;
+    }
+    .start-button {
+        background: var(--main-blue);
+    }
+    .form {
+        .submit-button {
+            color: var(--main-blue);
+        }
+    }
 }

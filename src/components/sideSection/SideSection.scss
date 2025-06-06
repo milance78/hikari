@@ -1,14 +1,23 @@
 .side-section {
-    position: absolute;
-    right: 27%;
+  position: absolute;
+  right: 27%;
 
-    .settings-container {
-      width: fit-content;
-        margin-top: 20px;
-      .cog-icon {             
-        color: var(--main-violet);
-        font-size: 35px;
-        cursor: pointer;
-      }
+  .settings-container {
+    width: fit-content;
+    margin-top: 20px;
+
+    .cog-icon {
+      color: var(--main-violet);
+      font-size: 35px;
+      cursor: pointer;
     }
   }
+}
+
+.side-section.blue {
+  .settings-container {
+    .cog-icon {
+      color: var(--main-blue);
+    }
+  }
+}
