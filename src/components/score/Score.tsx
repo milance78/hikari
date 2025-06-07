@@ -10,11 +10,13 @@ const Score = () => {
 
   return (
     <section className={`score`}>
-      <div className="true-answers score-display">
-        <DoneIcon className='true-icon' /> {trueAnswers}
+      <div className="score-display">
+        <DoneIcon className='true-icon' />   
+        <div className="trueScore">{trueAnswers}</div>
       </div>
-      <div className="false-answers score-display">
-        <CloseIcon className='false-icon' /> {falseAnswers}
+      <div className="score-display">
+        <CloseIcon className='false-icon' /> 
+        <div className="falseScore">{falseAnswers}</div>
       </div>
     </section>
   )

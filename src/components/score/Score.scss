@@ -1,4 +1,5 @@
 .score {
+    
     height: 70px;
     flex: 0.5;
     width: 150px;
@@ -9,6 +10,7 @@
     border-radius: 5px;
 
     .score-display {
+        
         font-size: 17px;
         display: flex;
         flex-direction: column;
@@ -25,5 +27,9 @@
     .false-icon {
         color: red;
         font-size: 25px;
+    }
+    .trueScore,
+    .falseScore {
+        color: var(--other)
     }
 }

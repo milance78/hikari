@@ -6,6 +6,7 @@ const initialState = {
     range: 12,
     rounds: 20,
     soundOn: true,
+    bgImgClassName: ''
 }
 
 export const parametersSlice = createSlice({
@@ -30,9 +31,14 @@ export const parametersSlice = createSlice({
         (state, action : PayloadAction<number>) => ({
                 ...state,
                 rounds: action.payload        
-        }),        
+        }),
+        updateBgImgClassName: 
+        (state, action : PayloadAction<string>) => ({
+                ...state,
+                bgImgClassName: action.payload        
+        }),         
     },
 });
 
-export const { soundOnOff, updateInterval, updateRange, updateRounds } = parametersSlice.actions
+export const { soundOnOff, updateInterval, updateRange, updateRounds, updateBgImgClassName } = parametersSlice.actions
 export default parametersSlice.reducer

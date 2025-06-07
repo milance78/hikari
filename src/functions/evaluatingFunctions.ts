@@ -6,7 +6,7 @@ import { incrementFalseScore, incrementTrueScore } from "../redux/features/score
 import { applauseSound, sadTromboneSound } from "../data";
 
 const countResult = (arr: number[]) =>
-  arr.reduce((sum, num) => sum + num);
+  arr.reduce((sum, num) => sum + num, 0);
 
 const timedResultImage = (img: string) => {
   store.dispatch(setResultImage(img));

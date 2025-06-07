@@ -5,12 +5,13 @@ import SoundSetup from '../soundSetup/SoundSetup';
 
 import RoundsInput from '../roundsInput/RoundsInput';
 
-const Settings = () =>
-  <div className='settings'>
+const Settings = () =>{
+  
+  return <div className='settings'>
     <SoundSetup />
     <IntervalInput />
     <RangeInput />
     <RoundsInput />
   </div>
-
+}
 export default Settings

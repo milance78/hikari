@@ -12,6 +12,7 @@
 :root {
   --bg: rgb(192, 228, 236);
   --primary: #06a8cd;
+  --other: none;
 }
 
 .css-1jwvgpz-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
