@@ -11,7 +11,7 @@ const SoundSetup = () => {
   const { soundOn } = useAppSelector((state: RootState) => state.parameters);
 
   return (
-    <div className="sound"
+    <div className="sound-setup"
       onClick={() => dispatch(soundOnOff())}>
       {
         soundOn

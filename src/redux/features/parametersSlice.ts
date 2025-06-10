@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 const initialState = {
-    interval: 900,
-    range: 12,
-    rounds: 20,
+    interval: 600,
+    range: 4,
+    rounds: 5,
     soundOn: true,
     bgImgClassName: ''
 }

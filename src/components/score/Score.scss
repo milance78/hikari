@@ -1,35 +1,16 @@
 .score {
     
-    height: 70px;
-    flex: 0.5;
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    border: solid 1px var(--primary);
-    border-radius: 5px;
+height: 400px;
+width: 500px;
+background: white;
+border: 3px solid var(--primary);
+border-radius: 10px;
+padding: 40px;
 
-    .score-display {
-        
-        font-size: 17px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 3px;
-    }
-
-    .true-icon {
-        color: green;
-        font-size: 25px;
-    }
-
-    .false-icon {
-        color: red;
-        font-size: 25px;
-    }
-    .trueScore,
-    .falseScore {
-        color: var(--other)
-    }
+.replay {
+    color: var(--primary);
+    font-size: 40px;
+    cursor: pointer;
+}
+   
 }

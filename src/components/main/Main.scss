@@ -71,6 +71,11 @@
         .Mui-focused .MuiOutlinedInput-notchedOutline {
             border-color: var(--primary);
         }
+
+        .MuiOutlinedInput-notchedOutline {
+            border-color: var(--other);
+        }
+
         .MuiInputBase-root {
             color: var(--other);
         }
@@ -82,6 +87,9 @@
         display: flex;
         justify-content: space-between;
     }
+
+    
+    
 
 }
 

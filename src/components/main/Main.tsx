@@ -5,43 +5,80 @@ import { runNumbers } from '../../functions/displayingFunctions'
 import { useAppSelector, useAppDispatch } from '../../redux/store'
 import { RootState } from '../../redux/store'
 import { evaluateResult } from '../../functions/evaluatingFunctions'
-import { setResultImage } from '../../redux/features/runningSlice'
+import { incrementProgression, setGameCourse, setResultImage, setSessionOver } from '../../redux/features/runningSlice'
+import { resetScoreList, resetScore } from '../../redux/features/scoreSlice'
 
 
 const Main = () => {
 
   const startButtonElement = useRef<HTMLButtonElement>(null);
   const resultElement = useRef<HTMLInputElement>(null);
+
+
+
+  // const [progression, setProgression] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [roundStarted, setRoundStarted] = useState(false);
+
 
   const dispatch = useAppDispatch();
-  const { resultImage, displayedNumber } = useAppSelector((state: RootState) => state.running);
+  const { resultImage, displayedNumber, progression } = useAppSelector((state: RootState) => state.running);
+  const { rounds } = useAppSelector((state: RootState) => state.parameters);
+  const { scoreList } = useAppSelector((state: RootState) => state.score);
 
   // initially focusing on start button at onload
   useEffect(() => {
     startButtonElement.current?.focus();
   }, [])
 
-  //---------------------------------------------------------------
-  const [inputValue, setInputvalue] = useState('');
-  const submitHandler = (ev: React.FormEvent<HTMLFormElement>) => {
-    ev.preventDefault();
-    if (inputValue !== "" && inputValue !== "e") {
-      evaluateResult(Number(inputValue));
-      setInputvalue('');
-      setIsRunning(false);
-      startButtonElement.current?.focus();
-    }
-  }
-  //---------------------------------------------------------------
-  const startHandler = () => {
-
+  //--------------------------------
+  const startNextHandler = () => {
+    dispatch(incrementProgression())
+    setRoundStarted(true);
     runNumbers();
     setIsRunning(true);
     // erasing image
     dispatch(setResultImage(''));
     resultElement.current?.focus();
+    // if (progression === rounds) {
+    //   dispatch(resetScoreList());
+    //   dispatch(resetScore());
+    //   setProgression(1);
+    // }
   }
+
+  //----------------------------------
+  const [inputValue, setInputvalue] = useState('');
+
+  const submitHandler = (ev: React.FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+    if (inputValue !== "" && inputValue !== "e") {
+      
+      
+      evaluateResult(Number(inputValue));
+      setInputvalue('');
+      setIsRunning(false);
+      startButtonElement.current?.focus();
+      // progression === rounds
+      //   ? setRoundStarted(false)
+      //   : setRoundStarted(true);
+      if (progression === rounds) {
+        const timeout = setTimeout(() => {
+          dispatch(setGameCourse('score'));
+          clearTimeout(timeout)
+        }, 5000)
+
+      }
+    }
+
+
+  }
+
+  const displayScoreList = scoreList.map(
+    (el, i) => <div key={i}>
+      {i + 1} : {el ? 'correct' : 'incorrect'}
+    </div>
+  )
 
   const displayValue = () =>
     isRunning
@@ -59,7 +96,12 @@ const Main = () => {
       <button
         ref={startButtonElement}
         className='start-button'
-        onClick={startHandler}>START</button>
+        onClick={startNextHandler}>{
+          !roundStarted ? 'START' : 'NEXT'
+        }</button>
+      rounds: {rounds} <br />
+      progression: {progression} <br />
+      {displayScoreList}
       <form
         className='form'
         onSubmit={submitHandler}>

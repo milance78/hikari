@@ -2,7 +2,7 @@ import { store } from "../redux/store";
 import wrongAnswerImage from '../img/wrongAnswer.png'
 import applauseImage from '../img/applause.png'
 import { setResultImage } from "../redux/features/runningSlice";
-import { incrementFalseScore, incrementTrueScore } from "../redux/features/scoreSlice";
+import { incrementFalseScore, incrementTrueScore, updateScoreList } from "../redux/features/scoreSlice";
 import { applauseSound, sadTromboneSound } from "../data";
 
 const countResult = (arr: number[]) =>
@@ -25,10 +25,12 @@ export const evaluateResult = (resultEnteredByUser: number) => {
   if (resultEnteredByUser === currentResult) {
     timedResultImage(applauseImage);
     store.dispatch(incrementTrueScore());
+    store.dispatch(updateScoreList(true));
     soundOn && applauseSound.play();
   } else {
     timedResultImage(wrongAnswerImage);
     store.dispatch(incrementFalseScore());
+    store.dispatch(updateScoreList(false));
     soundOn && sadTromboneSound.play();
   }
 }

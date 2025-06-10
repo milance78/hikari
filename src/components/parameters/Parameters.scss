@@ -1,25 +1,8 @@
-.settings {
-    background: var(--other);
-    position: absolute;
-    left: 200px;
-    top: 0px;
-    border: solid 1px var(--primary);
-    border-radius: 5px;
+.parameters {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 30px 40px;
-
-    .sound {
-        cursor: pointer;
-        color: var(--primary);
-        margin-right: 30px;
-
-        .sound-icon {
-            font-size: 30px;
-        }
-    }
-
+    gap: 40px;
+ 
     .select {
         width: 120px;
 
@@ -36,7 +19,5 @@
         }
 
     }
-
-
-
+    
 }

@@ -1,9 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-const initialState =
+interface Score {
+    trueAnswers: number;
+    falseAnswers: number;
+    scoreList: boolean[];
+}
+
+const initialState: Score =
 {
     trueAnswers: 0,
-    falseAnswers: 0
+    falseAnswers: 0,
+    scoreList : [],
 }
 
 export const scoreSlice = createSlice({
@@ -12,19 +19,31 @@ export const scoreSlice = createSlice({
     reducers: {
         incrementTrueScore: state => ({
             ...state,
-            trueAnswers: state.trueAnswers + 1
+            trueAnswers: state.trueAnswers + 1,
         }),
         incrementFalseScore: state => ({
             ...state,
-            falseAnswers: state.trueAnswers + 1
+            falseAnswers: state.falseAnswers + 1,
         }),
-        reset: () => ({
+        resetScore: state => ({
+            ...state,
             trueAnswers: 0,
-            falseAnswers: 0
+            falseAnswers: 0,
+        }),
+        updateScoreList: (state, action: PayloadAction<boolean>) => ({
+            ...state,
+            scoreList: [ 
+                ...state.scoreList,
+                action.payload
+            ],
+        }),
+        resetScoreList: state => ({
+            ...state,
+            scoreList: [],
         })
 
     },
 });
 
-export const { incrementTrueScore, incrementFalseScore, reset } = scoreSlice.actions
+export const { incrementTrueScore, incrementFalseScore, resetScore, resetScoreList, updateScoreList } = scoreSlice.actions
 export default scoreSlice.reducer

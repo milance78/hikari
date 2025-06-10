@@ -1,0 +1,31 @@
+.current-result {
+    flex: 0.5;
+    width: 70px;
+    margin: 30px 80px 0 auto;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+ 
+    .result-display {
+    background: var(--other);
+    border: solid 2px var(--primary);
+    padding: 10px 0;
+    border-radius: 5px;
+        font-size: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .true-icon {
+        color: green;
+        font-size: 25px;
+    }
+
+    .false-icon {
+        color: red;
+        font-size: 25px;
+    }
+}

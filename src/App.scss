@@ -1,15 +1,17 @@
 .app {
   height: 100vh;
   background-color: var(--bg);
+  
 
   .container {
     display: flex;
-    padding: 160px 0;
-    position: relative;
+    justify-content: center;
+    margin-top: 50px;
   }   
 }
 
 .app.minecraft {
   background-image: url('./img/minecraft.jpg');
-  background-position: left; 
+  background-position: center right; 
+  background-size: 125%;
 }

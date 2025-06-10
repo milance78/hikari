@@ -7,6 +7,9 @@ interface State {
   displayedNumber: null | number;
   currentArray: number[];
   isRunning: boolean;
+  gameCourse: string;
+  sessionOver: boolean;
+  progression: number
 }
 
 const initialState: State = {
@@ -15,6 +18,9 @@ const initialState: State = {
   displayedNumber: null,
   currentArray: [],
   isRunning: false,
+  gameCourse: 'setup',
+  sessionOver: false,
+  progression: 0
 }
 
 export const runningSlice = createSlice({
@@ -33,8 +39,24 @@ export const runningSlice = createSlice({
       ...state,
       currentArray: action.payload
     }),
+    setGameCourse: (state: State, action: PayloadAction<string>) => ({
+      ...state,
+      gameCourse: action.payload
+    }),
+    setSessionOver: (state: State, action: PayloadAction<boolean>) => ({
+      ...state,
+      sessionOver: action.payload
+    }),
+    incrementProgression: (state: State) => ({
+      ...state,
+      progression: state.progression + 1
+    }),
+    resetProgression: (state: State) => ({
+      ...state,
+      progression: 0
+    }),
   },
 });
 
-export const { setResultImage, setDisplayedNumber, setCurrentArray } = runningSlice.actions
+export const { setResultImage, setDisplayedNumber, setCurrentArray, setGameCourse, setSessionOver, incrementProgression, resetProgression } = runningSlice.actions
 export default runningSlice.reducer

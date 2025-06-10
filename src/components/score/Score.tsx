@@ -1,25 +1,30 @@
+import { resetProgression, setGameCourse } from '../../redux/features/runningSlice';
+import { resetScore, resetScoreList } from '../../redux/features/scoreSlice';
+import { useAppDispatch } from '../../redux/store';
 import './Score.scss'
-import DoneIcon from '@mui/icons-material/Done';
-import CloseIcon from '@mui/icons-material/Close';
-import { useAppSelector } from '../../redux/store';
+import ReplayIcon from '@mui/icons-material/Replay';
+
 
 
 const Score = () => {
-  const { trueAnswers, falseAnswers } = useAppSelector(state => state.score)
 
+    const dispatch = useAppDispatch();
 
-  return (
-    <section className={`score`}>
-      <div className="score-display">
-        <DoneIcon className='true-icon' />   
-        <div className="trueScore">{trueAnswers}</div>
-      </div>
-      <div className="score-display">
-        <CloseIcon className='false-icon' /> 
-        <div className="falseScore">{falseAnswers}</div>
-      </div>
-    </section>
-  )
+    const replayHandler = () => {
+        dispatch(setGameCourse('setup'));
+        dispatch(resetScoreList());
+              dispatch(resetScore());
+        // setProgression(1);
+        dispatch(resetProgression())
+    }
+
+    return <div className='score'>
+        <h1>
+            <ReplayIcon 
+            className='replay' 
+            onClick={replayHandler}/>
+        </h1>
+    </div>
 }
 
 export default Score

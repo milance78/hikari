@@ -28,7 +28,7 @@ async function asyncOperation(item: any) {
     }, 100);
   });
 }
-processItems();
+// processItems();
 
 function afterLoop() {
   console.log("All async operations completed");
