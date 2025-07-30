@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import './SoundSetup.scss'
-import { soundOnOff } from '../../redux/features/parametersSlice';
+import { setSound } from '../../redux/features/parametersSlice';
 import { RootState } from '../../redux/store';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
@@ -12,7 +12,10 @@ const SoundSetup = () => {
 
   return (
     <div className="sound-setup"
-      onClick={() => dispatch(soundOnOff())}>
+      onClick={() => dispatch(
+        soundOn
+          ? setSound(false)
+          : setSound(true))}>
       {
         soundOn
           ? <VolumeUpIcon className='sound-icon' />

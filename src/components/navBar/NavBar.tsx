@@ -3,7 +3,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LanguageSelect from '../languageSelect/LanguageSelect';
 import ThemeSelect from '../themeSelect/ThemeSelect';
 import SoundSetup from '../soundSetup/SoundSetup';
-import CurrentResult from '../currentResult/CurrentResult';
+import CurrentResult from '../currentScore/CurrentScore';
 
 const NavBar = () => 
         <nav>

@@ -8,11 +8,11 @@ const LanguageSelect = () => {
 
   const [visible, setVisible] = useState(false);
   const languagesElement = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {   
     window.addEventListener('click', (ev: any) => { 
       languagesElement.current &&
       !languagesElement.current.contains(ev.target) && setVisible(false)
-
     });
   }, []);
 

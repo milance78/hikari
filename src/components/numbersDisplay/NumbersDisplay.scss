@@ -1,0 +1,43 @@
+.numbers-display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .display {
+        width: 300px;
+        height: 200px;
+        border: 4px var(--primary) solid;
+        border-radius: 8px;
+        background: white;
+        font-size: 60px;
+        color: #8d59fe;
+        display: flex;
+
+        .num {
+            margin: auto;
+        }
+
+        img {
+            margin: auto;
+            width: 50%;
+        }
+
+    }
+
+    .start-button {
+        border: none;
+        outline: none;
+        margin-top: 5px;
+        background: var(--primary);
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        letter-spacing: 2px;
+        padding: 10px;
+        cursor: pointer;
+
+        &:focus {
+            border: solid white 1px;
+        }
+    }
+}

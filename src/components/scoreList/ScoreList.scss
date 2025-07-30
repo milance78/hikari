@@ -1,0 +1,23 @@
+.score-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 31px;
+    row-gap: 25px;
+    .single-result {
+        display: flex;
+        justify-content: space-between;   
+        align-items: center;
+        border-radius: 5px;
+        width: 60px;
+        padding: 9px;
+    }
+    .green {
+        background: rgb(209, 249, 209);
+    }
+    .red {
+        background: rgb(251, 215, 215);
+    }
+    .icon {
+        font-size: 18px;
+    }
+}

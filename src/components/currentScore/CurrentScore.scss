@@ -1,16 +1,16 @@
-.current-result {
-    flex: 0.5;
+.current-score {
+    // flex: 0.5;
     width: 70px;
-    margin: 30px 80px 0 auto;
-    flex-direction: column;
+    margin: 30px 200px 0 auto;
+    // flex-direction: column;
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 15px;
  
     .result-display {
     background: var(--other);
     border: solid 2px var(--primary);
-    padding: 10px 0;
+    padding: 10px 20px;
     border-radius: 5px;
         font-size: 17px;
         display: flex;

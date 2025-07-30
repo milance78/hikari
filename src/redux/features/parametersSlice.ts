@@ -13,9 +13,9 @@ export const parametersSlice = createSlice({
     name: 'parameters',
     initialState: initialState,
     reducers: {
-        soundOnOff: state => ({
+        setSound: (state, action : PayloadAction<boolean>) => ({
             ...state,
-            soundOn: !state.soundOn
+            soundOn: action.payload
         }),
         updateInterval: 
         (state, action : PayloadAction<number>) => ({
@@ -40,5 +40,5 @@ export const parametersSlice = createSlice({
     },
 });
 
-export const { soundOnOff, updateInterval, updateRange, updateRounds, updateBgImgClassName } = parametersSlice.actions
+export const { setSound, updateInterval, updateRange, updateRounds, updateBgImgClassName } = parametersSlice.actions
 export default parametersSlice.reducer

@@ -2,31 +2,37 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 interface State {
+  blankDisplay: boolean;
   resultImage: string;
   inputValue: string;
   displayedNumber: null | number;
   currentArray: number[];
-  isRunning: boolean;
+  numbersRunning: boolean;
+  roundStarted: boolean;
   gameCourse: string;
-  sessionOver: boolean;
-  progression: number
+  progression: number;
 }
 
 const initialState: State = {
+  blankDisplay: false,
   resultImage: '',
   inputValue: '',
   displayedNumber: null,
   currentArray: [],
-  isRunning: false,
+  numbersRunning: false,
+  roundStarted: false,
   gameCourse: 'setup',
-  sessionOver: false,
-  progression: 0
+  progression: 0,
 }
 
 export const runningSlice = createSlice({
   name: 'running',
   initialState: initialState,
   reducers: {
+    handleBlankDisplay: (state: State, action: PayloadAction<boolean>) => ({
+      ...state,
+      blankDisplay: action.payload
+    }),
     setResultImage: (state: State, action: PayloadAction<string>) => ({
       ...state,
       resultImage: action.payload
@@ -39,13 +45,17 @@ export const runningSlice = createSlice({
       ...state,
       currentArray: action.payload
     }),
+    setNumbersRunning: (state: State, action: PayloadAction<boolean>) => ({
+      ...state,
+      numbersRunning: action.payload
+    }),
+    setRoundStarted: (state: State, action: PayloadAction<boolean>) => ({
+      ...state,
+      roundStarted: action.payload,
+    }),
     setGameCourse: (state: State, action: PayloadAction<string>) => ({
       ...state,
       gameCourse: action.payload
-    }),
-    setSessionOver: (state: State, action: PayloadAction<boolean>) => ({
-      ...state,
-      sessionOver: action.payload
     }),
     incrementProgression: (state: State) => ({
       ...state,
@@ -58,5 +68,15 @@ export const runningSlice = createSlice({
   },
 });
 
-export const { setResultImage, setDisplayedNumber, setCurrentArray, setGameCourse, setSessionOver, incrementProgression, resetProgression } = runningSlice.actions
+export const {
+  handleBlankDisplay,
+  setResultImage,
+  setDisplayedNumber,
+  setCurrentArray,
+  setGameCourse,
+  incrementProgression,
+  resetProgression,
+  setNumbersRunning,
+  setRoundStarted,
+} = runningSlice.actions
 export default runningSlice.reducer

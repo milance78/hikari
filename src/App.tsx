@@ -1,11 +1,14 @@
 import './App.scss'
 import NavBar from './components/navBar/NavBar';
 import { useAppSelector } from './redux/store';
-import './functions/testFunctions'
-import Score from './components/score/Score';
+import FinalScore from './components/finalScore/FinalScore';
 import Session from './components/session/Session';
 import Setup from './components/setup/Setup';
-import CurrentResult from './components/currentResult/CurrentResult';
+import CurrentResult from './components/currentScore/CurrentScore';
+import './test.ts'
+
+
+
 
 const App = () => {
 
@@ -21,8 +24,9 @@ const App = () => {
         : gameCourse === 'game'
           ? <Session />
           : gameCourse === 'score'
-          && <Score />}
+          && <FinalScore />}
     </div>
+
   </div>
 }
 

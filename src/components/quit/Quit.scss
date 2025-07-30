@@ -1,0 +1,35 @@
+ .quit {
+     display: flex;
+     width: 65px;
+     height: 65px;
+     margin-left: auto;
+     position: relative;
+     cursor: pointer;
+
+     .quit-icon {
+         margin: auto;
+         color: var(--primary);
+         background-color: var(--other);
+         border-radius: 50%;
+         width: 30px;
+         height: 30px;
+         padding: 3px;
+         
+     }
+
+     .dialog-box {
+         border: solid 1px var(--primary);
+         border-radius: 5px;
+         display: flex;
+         align-items: center;
+         position: absolute;
+         bottom: 50px;
+         left: 40px;
+         padding: 5px;
+         background: var(--other);
+
+         .icon {
+             font-size: 18px;
+         }
+     }
+ }

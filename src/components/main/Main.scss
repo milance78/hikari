@@ -4,84 +4,16 @@
     flex-direction: column;
     gap: 10px;
     
+    
 
-    .display {
-        width: 300px;
-        height: 200px;
-        border: 4px var(--primary) solid;
-        border-radius: 8px;
-        background: white;
-        font-size: 60px;
-        color: #8d59fe;
-        display: flex;
-        .num {
-            margin: auto;
-        }
-        img {
-            margin: auto;
-            width: 50%;
-        }
-    }
-    .start-button {
-        border: none;
-        outline: none;
-        margin-top: 5px;
-        background: var(--primary);
-        border-radius: 5px;
-        color: white;
-        font-size: 16px;
-        letter-spacing: 2px;
-        padding: 10px ;
-        cursor: pointer;
-        &:focus {
-            border: solid white 1px;
-        }
-    }
+    
 
     // .result {
     //     // width: 40%;
     //     color: white;
     // }
 
-    .form {   
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 30px;
-        gap: 5px;
-        &>*{
-            width: 120px;
-        }
-        .result {
-            // color: var(--other);
-            // color: white;
-        }
-        .submit-button {
-            color: var(--primary);
-        }
-
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-        .Mui-focused .MuiOutlinedInput-notchedOutline {
-            border-color: var(--primary);
-        }
-
-        .MuiOutlinedInput-notchedOutline {
-            border-color: var(--other);
-        }
-
-        .MuiInputBase-root {
-            color: var(--other);
-        }
-  
-       
-    }
+    
     .display-array {
         width: 300px;
         display: flex;

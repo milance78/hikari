@@ -10,6 +10,7 @@ const countResult = (arr: number[]) =>
 
 const timedResultImage = (img: string) => {
   store.dispatch(setResultImage(img));
+  // deleting image after a while
   const timeOut = setTimeout(() => {
     store.dispatch(setResultImage(''))
     clearTimeout(timeOut);

@@ -1,0 +1,47 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 5px;
+
+    &>* {
+        width: 120px;
+    }
+
+    .result-input {
+        // color: var(--other);
+        // color: white;
+    }
+
+    .submit-button {
+        color: var(--primary);
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+    //focused border color for MUI textfield
+    .MuiFormLabel-root.Mui-focused {
+        color: var(--primary) !important;
+    }
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: var(--primary) !important;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+        border-color: var(--other);
+    }
+
+    .MuiInputBase-root {
+        color: var(--other);
+    }
+
+
+}
