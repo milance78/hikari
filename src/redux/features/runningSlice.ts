@@ -41,6 +41,10 @@ export const runningSlice = createSlice({
       ...state,
       displayedNumber: action.payload
     }),
+    setInputValue: (state: State, action: PayloadAction<string>) => ({
+      ...state,
+      inputValue: action.payload
+    }),
     setCurrentArray: (state: State, action: PayloadAction<number[]>) => ({
       ...state,
       currentArray: action.payload
@@ -72,6 +76,7 @@ export const {
   handleBlankDisplay,
   setResultImage,
   setDisplayedNumber,
+  setInputValue,
   setCurrentArray,
   setGameCourse,
   incrementProgression,

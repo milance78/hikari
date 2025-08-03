@@ -1,19 +1,4 @@
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-    gap: 5px;
-
-    &>* {
-        width: 120px;
-    }
-
-    .submit-button {
-        color: var(--primary);
-    }
-
-    input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button,
     input[type=number]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
@@ -37,6 +22,3 @@
     .MuiInputBase-root {
         color: var(--other);
     }
-
-
-}

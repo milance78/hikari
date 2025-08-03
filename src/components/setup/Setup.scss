@@ -1,4 +1,4 @@
-.setup {    
+.setup {
     width: 400px;
     background: white;
     border: solid 4px var(--primary);
@@ -7,10 +7,17 @@
     justify-content: space-between;
     padding: 40px;
 
-    .arrow {
-        margin-top: auto;
+    button {
         cursor: pointer;
-        font-size: 30px;
-        color: var(--primary);
+
+        .arrow {
+            margin-top: auto;
+            cursor: pointer;
+            font-size: 30px;
+            color: var(--primary);
+            padding: 0 10px;
+            width: 80px;
+        }
     }
+
 }

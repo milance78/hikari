@@ -6,6 +6,7 @@ import Session from './components/session/Session';
 import Setup from './components/setup/Setup';
 import CurrentResult from './components/currentScore/CurrentScore';
 import './test.ts'
+import InputResult from './components/inputResult/InputResult';
 
 
 
@@ -26,6 +27,7 @@ const App = () => {
           : gameCourse === 'score'
           && <FinalScore />}
     </div>
+    {/* <InputResult /> */}
 
   </div>
 }

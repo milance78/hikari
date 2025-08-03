@@ -1,49 +1,18 @@
-import React from 'react'
 import './Display.scss'
-import { useAppDispatch, useAppSelector } from '../../redux/store';
-import { incrementProgression, setNumbersRunning, setResultImage, setRoundStarted } from '../../redux/features/runningSlice';
-import { disableButton } from '../../redux/features/disabledSlice';
-import { runNumbers } from '../../functions/displayFunctions';
+import Evaluation from '../evaluation/Evaluation'
+import Numbers from '../numbers/Numbers';
+import { useAppSelector } from '../../redux/store';
 
-interface IRefButton {
-  current: HTMLButtonElement | null;
-}
-interface IRefInput {
-  current: HTMLInputElement | null;
-}
+const Display = () => {
 
-interface IProps {
-  resultInputRef: IRefInput;
-  startButtonRef: IRefButton;
-}
+  const { numbersRunning } = useAppSelector(state => state.running);
 
-const Display: React.FC<IProps> = ({ resultInputRef, startButtonRef }) => {
+  return <section className='display'>
+    {numbersRunning
+      ? <Numbers />
+      : <Evaluation />}
+  </section>
 
-const { roundStarted } = useAppSelector((state) => state.running);
-  const { buttonDisabled } = useAppSelector((state) => state.disabled);
-  const dispatch = useAppDispatch();
-
-  const startNextHandler = () => {
-      dispatch(setNumbersRunning(true));
-      dispatch(incrementProgression());
-      dispatch(setRoundStarted(true));
-      // erasing image
-      dispatch(setResultImage(''));
-      resultInputRef.current
-        && runNumbers(resultInputRef.current);
-    }
-
-  return (
-    <div className="display">
-        <button
-        ref={startButtonRef}
-        className='start-button'
-        disabled={buttonDisabled}
-        onClick={startNextHandler}>{
-          !roundStarted ? 'START' : 'NEXT'
-        }</button>
-    </div>
-  )
 }
 
 export default Display
